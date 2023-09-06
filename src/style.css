@@ -23,3 +23,28 @@ body {
 .hp {
   @apply w-[80px] bg-[#ffff] text-center rounded-[30px] ml-auto font-normal;
 }
+
+.poke-name {
+  @apply text-center font-semibold;
+}
+
+.type {
+  @apply flex justify-around mt-[20px] mb-[40px];
+}
+
+.hp span,
+.type span {
+  @apply text-sm font-semibold leading-[0.4px];
+}
+
+.stats {
+  @apply flex items-center justify-between text-center;
+}
+
+.stats p {
+  @apply text-[#404060];
+}
+
+#btn {
+  @apply block text-white bg-[#101010] py-[15px] px-[60px] text-[18px] relative my-[30px] mx-auto border-none rounded-[5px];
+}

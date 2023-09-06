@@ -614,3 +614,55 @@ body {
   text-align: center;
   font-weight: 400;
 }
+
+.poke-name {
+  text-align: center;
+  font-weight: 600;
+}
+
+.type {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.hp span,
+.type span {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  line-height: 0.4px;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.stats p {
+  --tw-text-opacity: 1;
+  color: rgb(64 64 96 / var(--tw-text-opacity));
+}
+
+#btn {
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border-radius: 5px;
+  border-style: none;
+  --tw-bg-opacity: 1;
+  background-color: rgb(16 16 16 / var(--tw-bg-opacity));
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 60px;
+  padding-right: 60px;
+  font-size: 18px;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
