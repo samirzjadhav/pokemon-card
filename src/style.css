@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply bg-[#eff3ff];
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  @apply w-[350px] absolute translate-x-[-50%] translate-y-[-50%] top-[50%] left-[50%];
+}
+
+#card {
+  @apply relative w-full py-[30px] px-[20px] rounded-xl;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+}
+
+#card img {
+  @apply block w-[180px] max-h-[200px] relative my-[20px] mx-[auto];
+}
+
+.hp {
+  @apply w-[80px] bg-[#ffff] text-center rounded-[30px] ml-auto font-normal;
+}
