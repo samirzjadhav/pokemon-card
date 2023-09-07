@@ -17,4 +17,24 @@ const typeColor = {
   water: "#0190FF",
 };
 
-const url = " https://pokeapi.co/api/v2/pokemon/";
+const url = "https://pokeapi.co/api/v2/pokemon/";
+const card = document.getElementById("card");
+const btn = document.getElementById("btn");
+
+let getPokemon = () => {
+  // Generate a Random Number Between 1 to 150
+  let id = Math.floor(Math.random() * 150) + 1;
+  console.log(id);
+
+  // Combine the pokeapi url with pokemon id
+  const fineUrl = url + id;
+
+  // Fetch generated Url
+  fetch(fineUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      // generateCard(data);
+      console.log(data);
+    });
+};
+getPokemon();
