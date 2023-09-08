@@ -35,6 +35,27 @@ let getPokemon = () => {
     .then((data) => {
       // generateCard(data);
       console.log(data);
+      const ability = data.abilities.array(object.ability.name);
+      console.log(ability);
     });
 };
+
 getPokemon();
+
+// Generate Card
+
+let generateCard = (data) => {
+  getPokemon();
+  console.log(data);
+  const hp = data.stats[0].base_stat;
+  const imgSrc = data.sprites.other.dream_world.front_default;
+  const pokeName = data.name[0].toUpperCase() + data.name.slice(1);
+  console.log(pokeName);
+  const statAttack = data.stats[1].base_stat;
+  const statDefense = data.stats[2].base_stat;
+  const statSpecialAttact = data.stats[3].base_stat;
+  const statSpecialDefense = data.stats[4].base_stat;
+  const statSpeed = data.stats[5].base_stat;
+  const ability = data.ability[0].object.name;
+};
+generateCard();
