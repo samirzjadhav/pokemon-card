@@ -35,8 +35,8 @@ let getPokemon = () => {
     .then((data) => {
       // generateCard(data);
       console.log(data);
-      const ability = data.abilities.array(object.ability.name);
-      console.log(ability);
+      const type = data.types[0].type.name;
+      console.log(type);
     });
 };
 
@@ -56,6 +56,9 @@ let generateCard = (data) => {
   const statSpecialAttact = data.stats[3].base_stat;
   const statSpecialDefense = data.stats[4].base_stat;
   const statSpeed = data.stats[5].base_stat;
-  const ability = data.ability[0].object.name;
+  const ability0 = data.abilities[0].ability.name;
+  const ability1 = data.abilities[1].ability.name;
+  const forms = data.forms[0].name;
+  const type0 = data.types[0].name;
+  const type1 = data.types[1].type.name;
 };
-generateCard();
