@@ -61,4 +61,43 @@ let generateCard = (data) => {
   const forms = data.forms[0].name;
   const type0 = data.types[0].name;
   const type1 = data.types[1].type.name;
+
+  // Set ThemeColor Based On Pokemon Type
+  const themeColor = typeColor[data.types[0].type.name];
+  console.log(themeColor);
+  card.innerHTML = `
+        <p class="hp">
+          <span>HP</span>
+            ${hp}
+        </p>
+        <img src=${imgSrc} />
+        <h2 class="poke-name">${pokeName}</h2>
+        <div class="types">
+         
+        </div>
+        <div class="stats">
+          <div>
+            <h3>${statAttack}</h3>
+            <p>Attack</p>
+          </div>
+          <div>
+            <h3>${statDefense}</h3>
+            <p>Defense</p>
+          </div>
+          <div>
+            <h3>${statSpeed}</h3>
+            <p>Speed</p>
+          </div>
+        </div>
+  `;
+  appendTypes(data.types);
+  styleCard(themeColor);
+};
+
+let appendTypes = (types) => {
+  types.forEach((item) => {
+    let span = document.createElement("SPAN");
+    span.textContent = item.type.name;
+    document.querySelector(".types").appendChild(span);
+  });
 };
