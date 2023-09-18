@@ -49,8 +49,6 @@ let generateCard = (data) => {
   const statSpeed = data.stats[5].base_stat;
   const ability0 = data.abilities[0].ability.name;
   const ability1 = data.abilities[1].ability.name;
-  const forms = data.forms[0].name;
-  const type0 = data.types[0].name;
 
   // Set themeColor based on pokemon type
   const themeColor = typeColor[data.types[0].type.name];
