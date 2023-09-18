@@ -28,17 +28,20 @@ body {
   @apply text-center font-semibold;
 }
 
-.type {
-  @apply flex justify-around mt-[20px] mb-[40px];
+.types {
+  @apply flex justify-center items-center flex-row gap-[12px] mt-[20px] mb-[40px];
 }
 
-.hp span,
-.type span {
+.types span {
+  @apply py-[8px] px-[12px] rounded-md text-sm font-semibold;
+}
+
+.hp span {
   @apply text-sm font-semibold leading-[0.4px];
 }
 
 .stats {
-  @apply flex items-center justify-between text-center;
+  @apply grid grid-cols-3 gap-[12px] text-center;
 }
 
 .stats p {

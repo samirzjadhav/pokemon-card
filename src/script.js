@@ -16,36 +16,27 @@ const typeColor = {
   rock: "#2d3436",
   water: "#0190FF",
 };
-
-const url = "https://pokeapi.co/api/v2/pokemon/";
+const url = " https://pokeapi.co/api/v2/pokemon/";
 const card = document.getElementById("card");
 const btn = document.getElementById("btn");
 
-let getPokemon = () => {
-  // Generate a Random Number Between 1 to 150
+let getPokeData = () => {
+  // Generate a random number between 1 and 150
   let id = Math.floor(Math.random() * 150) + 1;
-  console.log(id);
-
   // Combine the pokeapi url with pokemon id
-  const fineUrl = url + id;
-
-  // Fetch generated Url
-  fetch(fineUrl)
+  const finalUrl = url + id;
+  // Fetch generated URL
+  fetch(finalUrl)
     .then((response) => response.json())
     .then((data) => {
-      // generateCard(data);
-      console.log(data);
-      const type = data.types[0].type.name;
-      console.log(type);
+      generateCard(data);
     });
 };
 
-getPokemon();
-
-// Generate Card
+//Generate Card
 
 let generateCard = (data) => {
-  getPokemon();
+  // Get necessary data and assign it to variables
   console.log(data);
   const hp = data.stats[0].base_stat;
   const imgSrc = data.sprites.other.dream_world.front_default;
@@ -53,47 +44,59 @@ let generateCard = (data) => {
   console.log(pokeName);
   const statAttack = data.stats[1].base_stat;
   const statDefense = data.stats[2].base_stat;
-  const statSpecialAttact = data.stats[3].base_stat;
+  const statSpecialAttack = data.stats[3].base_stat;
   const statSpecialDefense = data.stats[4].base_stat;
   const statSpeed = data.stats[5].base_stat;
   const ability0 = data.abilities[0].ability.name;
   const ability1 = data.abilities[1].ability.name;
   const forms = data.forms[0].name;
   const type0 = data.types[0].name;
-  const type1 = data.types[1].type.name;
 
-  // Set ThemeColor Based On Pokemon Type
+  // Set themeColor based on pokemon type
   const themeColor = typeColor[data.types[0].type.name];
   console.log(themeColor);
   card.innerHTML = `
-        <p class="hp">
-          <span>HP</span>
-            ${hp}
-        </p>
-        <img src=${imgSrc} />
-        <h2 class="poke-name">${pokeName}</h2>
-        <div class="types">
-         
+    <p class="hp">
+      <span>HP</span>
+      ${hp}
+    </p>
+    <img src=${imgSrc} />
+    <h2 class="poke-name">${pokeName}</h2>
+    <div class="types"></div>
+    <div class="stats-container flex flex-col gap-[12px]">
+      <h3 class="text-lg font-semibold uppercase">Stats</h3>
+      <div class="stats">
+        <div>
+          <h3>${statAttack}</h3>
+          <p>Attack</p>
         </div>
-        <div class="stats">
-          <div>
-            <h3>${statAttack}</h3>
-            <p>Attack</p>
-          </div>
-          <div>
-            <h3>${statDefense}</h3>
-            <p>Defense</p>
-          </div>
-          <div>
-            <h3>${statSpeed}</h3>
-            <p>Speed</p>
-          </div>
+        <div>
+          <h3>${statDefense}</h3>
+          <p>Defense</p>
         </div>
+        <div>
+          <h3>${statSpecialAttack}</h3>
+          <p>SP Attack</p>
+        </div>
+        <div>
+          <h3>${statSpecialDefense}</h3>
+          <p>SP Defense</p>
+        </div>
+        <div>
+          <h3>${statSpeed}</h3>
+          <p>Speed</p>
+        </div>
+      </div>
+      <h3 class="text-lg font-semibold uppercase">Abilities</h3>
+      <div class="flex gap-[12px]">
+        <h3>${ability0}</h3>
+        <h3>${ability1}</h3>
+      </div>
+    </div>
   `;
   appendTypes(data.types);
   styleCard(themeColor);
 };
-
 let appendTypes = (types) => {
   types.forEach((item) => {
     let span = document.createElement("SPAN");
@@ -101,3 +104,12 @@ let appendTypes = (types) => {
     document.querySelector(".types").appendChild(span);
   });
 };
+let styleCard = (color) => {
+  card.style.background = `radial-gradient(circle at 50% 0%, ${color} 36%, #ffffff 36%)`;
+  card.querySelectorAll(".types span").forEach((typeColor) => {
+    typeColor.style.backgroundColor = color;
+  });
+};
+
+btn.addEventListener("click", getPokeData);
+window.addEventListener("load", getPokeData);
